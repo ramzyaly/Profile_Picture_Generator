@@ -8,10 +8,10 @@ class App extends Component {
       y:''
     }
   }
-  aksi(){
+  convert(){
     var y = this.refs.img.value;
-    var ubah = Math.floor(Math.random() * 10) + 1;
-    var link = `https://robohash.org/${y}?set=set${ubah}`;
+    var calculate = Math.floor(Math.random() * 10) + 1;
+    var link = `https://robohash.org/${y}?set=set${calculate}`;
 
     this.setState({x:link})
   }
@@ -23,7 +23,7 @@ class App extends Component {
       <center>
         <div className="form-group col-xs-12 col-sm-6 col-md-4 col-lg-3" style={{padding: '30px'}}>
           <input className="form-control" ref='img' type="text" placeholder="Ketik nama Anda..."/>
-          <button onClick={()=>{this.aksi()}} className="btn btn-success btn-md m-3">Buat Profile Picture!</button>
+          <button onClick={()=>{this.convert()}} className="btn btn-success btn-md m-3">Buat Profile Picture!</button>
             <div>
             <div><img className="rounded-circle img-fluid" style={{background: 'white'}} src={this.state.x} y={this.img} alt=""/></div>
             </div>
