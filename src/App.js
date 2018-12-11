@@ -1,27 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 class App extends Component {
+  constructor(){
+    super();
+    this.state = {
+      x:'', 
+      y:''
+    }
+  }
+  aksi(){
+    var y = this.refs.img.value;
+    var ubah = Math.floor(Math.random() * 10) + 1;
+    var link = `https://robohash.org/${y}?set=set${ubah}`;
+
+    this.setState({x:link})
+  }
+
   render() {
+    
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="container" style={{background: 'lightblue'}}>
+      <center>
+        <div className="form-group col-xs-12 col-sm-6 col-md-4 col-lg-3" style={{padding: '30px'}}>
+          <input className="form-control" ref='img' type="text" placeholder="Ketik nama Anda..."/>
+          <button onClick={()=>{this.aksi()}} className="btn btn-success btn-md m-3">Buat Profile Picture!</button>
+            <div>
+            <div><img className="rounded-circle img-fluid" style={{background: 'white'}} src={this.state.x} y={this.img} alt=""/></div>
+            </div>
+        </div>
+      </center>
       </div>
-    );
+	)
   }
 }
 
